@@ -7,12 +7,15 @@
 
 html,
 body {
-  max-width: 1440px;
+  color: azure;
+  max-width: 1356px;
   margin: 0 auto;
-  /* background-image: url('http://localhost:3000/asBg.jpg'); */
+  background: radial-gradient(at center top, rgb(180, 83, 9), rgb(253, 186, 116), rgb(159, 18, 57));
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
+
 
 a {
   color: inherit;
