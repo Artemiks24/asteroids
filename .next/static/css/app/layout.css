@@ -79,6 +79,7 @@
 
 html,
 body {
+  height: 100vh;
   color: azure;
   max-width: 1356px;
   margin: 0 auto;
@@ -86,6 +87,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  
 }
 
 
@@ -95,28 +97,3 @@ a {
 }
 
 
-/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Header/Header.module.css ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************/
-.Header_header__pXml_ {
-    padding: 20px 20px;
-    margin-bottom: 20px;
-}
-
-.Header_header__container__ceOrJ {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.Header_logo__sUWiP {
-    cursor: pointer;
-}
-/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Footer/Footer.module.css ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************/
-.Footer_wrapper__znyEu {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 20px;
-}

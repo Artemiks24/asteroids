@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import styles from './Post.module.css';
 import Image from 'next/image';
-import { Button } from 'antd';
 import { Gradient } from '../../consts';
+import { Button } from '@mui/material';
 
 const Post: FC = () => {
     return (
@@ -19,7 +19,7 @@ const Post: FC = () => {
                     </div>
                 </div>
                 <div className={styles.interactive}>
-                    <Button style={{ background: Gradient.add }} type="primary">Add</Button>
+                    <Button style={{ background: Gradient.add }} variant="contained" >Добавить</Button>
                     {/* <Button style={{ background: Gradient.basketButton }} type="primary">In the basket</Button> */}
                     <p>⚠ опасно</p>
                 </div>
