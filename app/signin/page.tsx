@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export default function SignIn() {
+import AuthPage from '../../components/AuthPage/AuthPage';
+
+const SignIn: FC = () => {
     return (
-        <div>signin</div>
+        <>
+            <AuthPage />
+        </>
     );
-}
+};
+
+export default SignIn;
