@@ -1,0 +1,20 @@
+.wrapper {
+    color: black;
+    padding-top: 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 303px;
+    gap: 10px;
+}
+
+
+.subWrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.link {
+    text-decoration: underline;
+}

@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export default function SignUp() {
+import RegistrPage from '../../components/RegistrPage/RegistrPage';
+import Logo from '../../components/Logo/Logo';
+import Footer from '../../components/Footer/Footer';
+
+
+const SignIn: FC = () => {
     return (
-        <div>signup</div>
+        <>
+            <Logo />
+            <RegistrPage />
+            <Footer />
+        </>
     );
-}
+};
+
+export default SignIn;
