@@ -1,0 +1,59 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/FormAuth/FormAuth.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+.FormAuth_form__E07hd {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.FormAuth_input__K6wH3 {
+    width: 340px;
+}
+
+.FormAuth_button__8BY0B {
+    width: 340px;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/LoginPage/LoginPage.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+.LoginPage_wrapper__T0GZg {
+    color: black;
+    padding-top: 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 303px;
+    gap: 10px;
+}
+
+
+.LoginPage_subWrapper__Ev3Mq {
+    display: flex;
+    gap: 10px;
+}
+
+.LoginPage_link__ubCkl {
+    text-decoration: underline;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Logo/Logo.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.Logo_logoWrapper__w_tMl {
+    padding: 20px 0px 0px 20px;
+}
+
+.Logo_logo__NU4Nk {
+    cursor: pointer;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Footer/Footer.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.Footer_wrapper__znyEu {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    
+}

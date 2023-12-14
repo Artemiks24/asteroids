@@ -15,6 +15,19 @@
 .FormAuth_button__8BY0B {
     width: 340px;
 }
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/RegistrPage/RegistrPage.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+.RegistrPage_wrapper__xDii3 {
+    color: black;
+    padding-top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 354px;
+}
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Logo/Logo.module.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************************/
@@ -33,17 +46,4 @@
     justify-content: space-between;
     padding: 0 20px;
     
-}
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/RegistrPage/RegistrPage.module.css ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************/
-.RegistrPage_wrapper__xDii3 {
-    color: black;
-    padding-top: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 354px;
 }

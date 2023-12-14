@@ -1,4 +1,3 @@
-import Basket from '../components/Basket/Basket';
 import Footer from '../components/Footer/Footer';
 import Head from '../components/Header/Header';
 import Posts from '../components/Posts/Posts';
@@ -16,7 +15,6 @@ export default function Home() {
                     <h1 className={styles.title}>Ближайшие подлёты астероидов</h1>
                     <h3 className={styles.subtitle}>в километрах | в лунных орбитах</h3>
                     <Posts />
-                    <Basket />
                 </div>
             </main>
             <Footer />

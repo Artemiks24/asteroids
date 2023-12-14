@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import styles from './Header.module.css';
-import Authorize from '../Authorize/Authorize';
+import UnAuthorize from '../UnAuthorize/UnAuthorize';
 import Logo from '../Logo/Logo';
+import Authorize from '../Aythorize/Authorize';
 
 
 const Head: FC = () => {
@@ -10,6 +11,7 @@ const Head: FC = () => {
             <div className={styles.header__container}>
                 <Logo />
                 <Authorize />
+                <UnAuthorize />
             </div>
         </header>
     );
