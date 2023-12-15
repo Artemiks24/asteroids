@@ -25,7 +25,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 303px;
     gap: 10px;
 }
 
@@ -47,13 +46,4 @@
 
 .Logo_logo__NU4Nk {
     cursor: pointer;
-}
-/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Footer/Footer.module.css ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************/
-.Footer_wrapper__znyEu {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    
 }

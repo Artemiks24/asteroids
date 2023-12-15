@@ -6,6 +6,8 @@ import styles from "./FormAuth.module.css";
 import { PasswordValidate, EmailValidate } from "./validate";
 import { Gradient } from "../../consts";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { toggleAuth } from "../../redux/features/posts/postsslice";
 
 interface FormAuthProps {
   buttonText: string;
@@ -25,6 +27,12 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
     handleSubmit,
   } = useForm<ISignin>();
 
+  const dispatch = useDispatch();
+
+  const handleToggleAuth = () => {
+    dispatch(toggleAuth());
+  };
+
   const onSubmit = async (event: ISignin) => {
     const data = {
       email: event.email,
@@ -42,14 +50,18 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
           router.push("/modal");
         }
         if (buttonText === "Войти") {
-            router.push("/");
+          handleToggleAuth();
+          router.push("/");
         }
-        
+
       } else {
         newData.push(data);
+        handleToggleAuth();
+        router.push("/");
       }
     } else {
       newData.push(data);
+      router.push("/");
     }
     localStorage.setItem("userData", JSON.stringify(newData));
   };

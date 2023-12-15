@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 
 import RegistrPage from '../../components/RegistrPage/RegistrPage';
 import Logo from '../../components/Logo/Logo';
-import Footer from '../../components/Footer/Footer';
 
 
 const SignIn: FC = () => {
@@ -10,7 +9,6 @@ const SignIn: FC = () => {
         <>
             <Logo />
             <RegistrPage />
-            <Footer />
         </>
     );
 };
