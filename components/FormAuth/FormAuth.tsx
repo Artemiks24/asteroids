@@ -1,4 +1,3 @@
-"use client";
 import React, { FC } from "react";
 import { TextField, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
@@ -6,6 +5,8 @@ import styles from "./FormAuth.module.css";
 import { PasswordValidate, EmailValidate } from "./validate";
 import { Gradient } from "../../consts";
 import { useRouter } from "next/navigation";
+import { handleToggleAuth } from "../../helper/ToggleAuth";
+
 
 interface FormAuthProps {
   buttonText: string;
@@ -25,6 +26,7 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
     handleSubmit,
   } = useForm<ISignin>();
 
+
   const onSubmit = async (event: ISignin) => {
     const data = {
       email: event.email,
@@ -42,14 +44,18 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
           router.push("/modal");
         }
         if (buttonText === "Войти") {
-            router.push("/");
+          await handleToggleAuth();
+          router.push("/");
         }
-        
+
       } else {
         newData.push(data);
+        await handleToggleAuth();
+        router.push("/");
       }
     } else {
       newData.push(data);
+      router.push("/");
     }
     localStorage.setItem("userData", JSON.stringify(newData));
   };

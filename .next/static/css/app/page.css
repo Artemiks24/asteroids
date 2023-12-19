@@ -7,22 +7,6 @@
     padding: 0 20px;
     
 }
-/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Header/Header.module.css ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************/
-.Header_header__pXml_ {
-    margin-bottom: 40px;
-}
-
-.Header_header__container__ceOrJ {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.Header_logo__sUWiP {
-    cursor: pointer;
-}
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/UnAuthorize/UnAuthorize.module.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************/
@@ -48,6 +32,22 @@
     padding: 20px 20px 0px 0px;
     display: flex;
     gap: 10px;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Header/Header.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.Header_header__pXml_ {
+    margin-bottom: 40px;
+}
+
+.Header_header__container__ceOrJ {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header_logo__sUWiP {
+    cursor: pointer;
 }
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Post/Post.module.css ***!
@@ -87,6 +87,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: 600px; 
+    overflow-y: auto;
 }
 /*!***************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/page.module.css ***!
@@ -101,7 +103,7 @@
     gap: 50px;
     align-items: center;
     padding: 0 20px;
-    margin-bottom: 95px;
+    margin-bottom: 7%;
 }
 
 .page_mainContainer__HWWsc {

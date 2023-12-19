@@ -1,5 +1,6 @@
 import Footer from '../components/Footer/Footer';
-import Head from '../components/Header/Header';
+import HeaderWrapper from '../components/Header/HeaderWrapper';
+
 import Posts from '../components/Posts/Posts';
 import styles from './page.module.css';
 import Image from 'next/image';
@@ -8,7 +9,7 @@ import Image from 'next/image';
 export default function Home() {
     return (
         <div className={styles.container}>
-            <Head />
+            <HeaderWrapper />
             <main className={styles.main}>
                 <Image priority={true} className={styles.img} src='http://localhost:3000/aster.svg' alt='planet' width={400} height={400} />
                 <div className={styles.mainContainer}>
