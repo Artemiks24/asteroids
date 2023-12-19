@@ -1,7 +1,7 @@
 .postList {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     max-height: 600px; 
     overflow-y: auto;
 }

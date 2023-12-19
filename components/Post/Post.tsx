@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import styles from './Post.module.css';
 import Image from 'next/image';
 import { Gradient } from '../../consts';

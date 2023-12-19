@@ -1,7 +1,6 @@
 import Footer from '../components/Footer/Footer';
 import HeaderWrapper from '../components/Header/HeaderWrapper';
-
-import Posts from '../components/Posts/Posts';
+import PostsWrapper from '../components/Posts/PostsWrapper';
 import styles from './page.module.css';
 import Image from 'next/image';
 
@@ -15,7 +14,7 @@ export default function Home() {
                 <div className={styles.mainContainer}>
                     <h1 className={styles.title}>Ближайшие подлёты астероидов</h1>
                     <h3 className={styles.subtitle}>в километрах | в лунных орбитах</h3>
-                    <Posts />
+                    <PostsWrapper />
                 </div>
             </main>
             <Footer />
