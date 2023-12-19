@@ -3,6 +3,7 @@ import { Gradient } from '../../consts';
 import Link from 'next/link';
 import styles from './Authorize.module.css';
 import { Button } from '@mui/material';
+import { handleToggleAuth } from '../../helper/ToggleAuth';
 
 const Authorize: FC = () => {
     return (
@@ -13,7 +14,7 @@ const Authorize: FC = () => {
             <Link href='/history'><Button style={{ background: Gradient.login }} variant="contained" >
                 История
             </Button></Link>
-            <Link href='/'><Button style={{ background: Gradient.login }} variant="contained" >
+            <Link href='/'><Button onClick={() => handleToggleAuth()} style={{ background: Gradient.login }} variant="contained" >
                 Выйти
             </Button></Link>
         </div>

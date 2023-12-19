@@ -1,4 +1,3 @@
-"use client";
 import React, { FC } from "react";
 import { TextField, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
@@ -6,8 +5,8 @@ import styles from "./FormAuth.module.css";
 import { PasswordValidate, EmailValidate } from "./validate";
 import { Gradient } from "../../consts";
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
-import { toggleAuth } from "../../redux/features/posts/postsslice";
+import { handleToggleAuth } from "../../helper/ToggleAuth";
+
 
 interface FormAuthProps {
   buttonText: string;
@@ -27,11 +26,6 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
     handleSubmit,
   } = useForm<ISignin>();
 
-  const dispatch = useDispatch();
-
-  const handleToggleAuth = () => {
-    dispatch(toggleAuth());
-  };
 
   const onSubmit = async (event: ISignin) => {
     const data = {
@@ -50,13 +44,13 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
           router.push("/modal");
         }
         if (buttonText === "Войти") {
-          handleToggleAuth();
+          await handleToggleAuth();
           router.push("/");
         }
 
       } else {
         newData.push(data);
-        handleToggleAuth();
+        await handleToggleAuth();
         router.push("/");
       }
     } else {

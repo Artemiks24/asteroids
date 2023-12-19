@@ -1,16 +1,19 @@
-'use client';
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, } from "@reduxjs/toolkit";
+
+const initialState = {
+  isAuth: false,
+};
 
 const postsSlice = createSlice({
-    name: 'posts',
-    initialState: {
-        isAuth: false,
-        posts: [],
+  name: 'posts',
+  initialState,
+  reducers: {
+    toggleAuth: (state) => {
+      state.isAuth = !state.isAuth;
     },
-    reducers:{
-        toggleAuth: (state) => {state.isAuth = !state.isAuth;},
-    }
-
+  },
+  
 });
-export const {toggleAuth} = postsSlice.actions;
+
+export const { toggleAuth } = postsSlice.actions;
 export default postsSlice.reducer;
