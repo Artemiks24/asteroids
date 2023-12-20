@@ -1,7 +1,11 @@
-import { createSlice, } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+
+
+
 
 const initialState = {
   isAuth: false,
+
 };
 
 const postsSlice = createSlice({
@@ -12,7 +16,7 @@ const postsSlice = createSlice({
       state.isAuth = !state.isAuth;
     },
   },
-  
+ 
 });
 
 export const { toggleAuth } = postsSlice.actions;

@@ -1,10 +1,10 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react';
 import ModalBox from '../../components/ModalBox/ModalBox';
 
-const modal:FC = () => {
+const modal: FC = () => {
   return (
     <>
-    <ModalBox />
+      <ModalBox />
     </>
   );
 };

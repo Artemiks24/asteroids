@@ -8,13 +8,13 @@ import { StoreProvider } from '../../app/provider';
 
 const RegistrPage: FC = () => {
 
-    const buttonText = 'Зарегестрироваться';
+    const buttonText = 'Sign up';
 
     return (
         <StoreProvider>
             <div className={styles.wrapper}>
                 <Typography variant="h5" component="div">
-                    Добро пожаловать
+                    Welcome
                 </Typography>
                 <FormAuth buttonText={buttonText} />
             </div>

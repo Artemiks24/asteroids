@@ -9,15 +9,15 @@ const ModalBox: FC = () => {
   return (
     <div className={styles.wrapper}>
       <Typography variant="h6" component="div">
-        У вас уже есть аккаунт, желаете войти?
+        You already have an account, would you like to log in?
       </Typography>
       <div className={styles.btnwrapper}>
-      <Link href='/signin'><Button style={{ background: Gradient.login }} variant="contained">
-                Да
-            </Button></Link>
-            <Link href='/signup'><Button style={{ background: Gradient.login }} variant="contained">
-                Назад
-            </Button></Link>
+        <Link href='/signin'><Button style={{ background: Gradient.login }} variant="contained">
+          Yes
+        </Button></Link>
+        <Link href='/signup'><Button style={{ background: Gradient.login }} variant="contained">
+          Back
+        </Button></Link>
       </div>
     </div>
   );

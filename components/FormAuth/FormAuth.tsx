@@ -40,10 +40,10 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
         (item: ISignin) => item.email === data.email
       );
       if (emailExists) {
-        if (buttonText === "Зарегестрироваться") {
+        if (buttonText === "Sign up") {
           router.push("/modal");
         }
-        if (buttonText === "Войти") {
+        if (buttonText === "Sign in") {
           await handleToggleAuth();
           router.push("/");
         }

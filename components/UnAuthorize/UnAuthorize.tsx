@@ -8,10 +8,10 @@ const UnAuthorize: FC = () => {
     return (
         <div className={styles.wrapper}>
             <Link href='/signin'><Button style={{ background: Gradient.login }} variant="contained">
-                Войти
+                Sign in
             </Button></Link>
             <Link href='/signup'><Button style={{ background: Gradient.login }} variant="contained" >
-                Зарегестрироваться
+                Sign up
             </Button></Link>
         </div>
 

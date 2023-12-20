@@ -1,7 +1,42 @@
 .postList {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     max-height: 600px; 
     overflow-y: auto;
+}
+
+.container {
+    width: 400px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: azure;
+    cursor: pointer;
+}
+.title {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.distanceWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.description {
+    display: flex;
+    gap: 10px;
+}
+
+.interactive {
+   display: flex;
+   gap: 20%; 
+   align-items: center;
 }
