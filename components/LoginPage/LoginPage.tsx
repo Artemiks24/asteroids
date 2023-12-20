@@ -8,21 +8,21 @@ import { StoreProvider } from '../../app/provider';
 
 const LoginPage: FC = () => {
 
-    const buttonText = 'Войти';
+    const buttonText = 'Sign in';
 
     return (
         <StoreProvider>
             <div className={styles.wrapper}>
                 <Typography variant="h4" component="div">
-                    Войдите
+                    Sign in
                 </Typography>
                 <Typography className={styles.subtitle} variant="subtitle1" component="div">
-                    чтобы получить доступ
+                    to access
                 </Typography>
                 <FormAuth buttonText={buttonText} />
                 <div className={styles.subWrapper}>
-                    <p>Нет аккаунта?</p>
-                    <Link className={styles.link} href='/signup'>Зарегестрируйтесь</Link>
+                    <p>No account?</p>
+                    <Link className={styles.link} href='/signup'>Sign up</Link>
                 </div>
             </div>
         </StoreProvider>

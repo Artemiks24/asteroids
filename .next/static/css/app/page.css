@@ -88,37 +88,6 @@
 .Header_logo__sUWiP {
     cursor: pointer;
 }
-/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Post/Post.module.css ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************/
-.Post_container__3sBbc {
-    width: 400px;
-    padding: 10px 25px;
-    border-radius: 10px;
-    color: azure;
-    cursor: pointer;
-}
-.Post_title__CGr2J {
-    font-size: 24px;
-    line-height: 32px;
-}
-
-.Post_wrapper__BqnBi {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.Post_description__jUAAu {
-    display: flex;
-    gap: 10px;
-}
-
-.Post_interactive__WvrJN {
-   display: flex;
-   justify-content: space-between; 
-   align-items: center;
-}
 /*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Posts/Posts.module.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************/
@@ -128,4 +97,39 @@
     gap: 15px;
     max-height: 600px; 
     overflow-y: auto;
+}
+
+.Posts_container__KCK6W {
+    width: 400px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: azure;
+    cursor: pointer;
+}
+.Posts_title__0dRvl {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.Posts_wrapper__FsUJA {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Posts_distanceWrapper__6wH5_ {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Posts_description__tsIt1 {
+    display: flex;
+    gap: 10px;
+}
+
+.Posts_interactive___5IqP {
+   display: flex;
+   gap: 20%; 
+   align-items: center;
 }

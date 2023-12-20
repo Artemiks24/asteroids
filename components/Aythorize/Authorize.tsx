@@ -9,13 +9,13 @@ const Authorize: FC = () => {
     return (
         <div className={styles.wrapper}>
             <Link href='/favorites'><Button style={{ background: Gradient.login }} variant="contained">
-                Избранное
+                Favorites
             </Button></Link>
             <Link href='/history'><Button style={{ background: Gradient.login }} variant="contained" >
-                История
+                History
             </Button></Link>
             <Link href='/'><Button onClick={() => handleToggleAuth()} style={{ background: Gradient.login }} variant="contained" >
-                Выйти
+                Sign out
             </Button></Link>
         </div>
 
