@@ -1,7 +1,7 @@
 'use client';
 import { FC } from 'react';
 import Head from './Header';
-import { StoreProvider } from '../../app/provider';
+import { StoreProvider } from '../../redux/provider';
 
 const HeaderWrapper: FC = () => {
     return (

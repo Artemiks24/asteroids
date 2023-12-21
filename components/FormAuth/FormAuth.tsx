@@ -46,8 +46,9 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
         router.push("/");
       }
     } else {
-      newData.push(data);
-      router.push("/");
+      if (buttonText === "Sign in") {
+        router.push("/signup");
+      }
     }
     localStorage.setItem("userData", JSON.stringify(newData));
   };

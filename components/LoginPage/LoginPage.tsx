@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 import styles from './LoginPage.module.css';
 import FormAuth from '../FormAuth/FormAuth';
 import Link from 'next/link';
-import { StoreProvider } from '../../app/provider';
+import { StoreProvider } from '../../redux/provider';
 
 const LoginPage: FC = () => {
 
