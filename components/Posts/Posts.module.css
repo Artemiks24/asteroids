@@ -6,6 +6,11 @@
     overflow-y: auto;
 }
 
+.postList::-webkit-scrollbar {
+    width: 0;
+    background: transparent; 
+}
+
 .container {
     width: 400px;
     padding: 10px 15px;
