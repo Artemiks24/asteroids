@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import styles from './RegistrPage.module.css';
 import { Typography } from '@mui/material';
 import FormAuth from '../FormAuth/FormAuth';
-import { StoreProvider } from '../../app/provider';
+import { StoreProvider } from '../../redux/provider';
 
 
 const RegistrPage: FC = () => {

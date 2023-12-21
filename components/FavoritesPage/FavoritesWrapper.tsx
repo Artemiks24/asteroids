@@ -1,6 +1,6 @@
 'use client';
 import React, { FC } from 'react';
-import { StoreProvider } from '../../app/provider';
+import { StoreProvider } from '../../redux/provider';
 import Favorites from './Favorites';
 
 
