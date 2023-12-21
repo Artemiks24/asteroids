@@ -1,0 +1,36 @@
+import { FC } from 'react';
+import styles from './Post.module.css';
+
+import Image from 'next/image';
+import { Gradient } from '../../consts';
+import { formatDate } from '../../helper/formatDate';
+import { IpostProps } from '../../helper/types';
+import ButtonContainer from '../ButtonContainer/ButtonContainer';
+
+const Post: FC<IpostProps> = ({ id, name, kilometers, lunar, date, diameter, danger }) => {
+
+    return (
+        <div style={{ background: Gradient.borderPost }} className={styles.container}>
+            <h5 className={styles.title}>{name}</h5>
+            <div className={styles.wrapper}>
+                <div className={styles.description}>
+                    <div className={styles.distanceWrapper}>
+                        <p>{`${Number(kilometers).toFixed(0)} kilometers`}</p>
+                        <p>{`${Number(lunar).toFixed(0)} lunar distance`}</p>
+                    </div>
+                    <Image src='http://localhost:3000/asMini.png' alt='aster' width={25} height={25} />
+                    <div className={styles.about}>
+                        <p>{formatDate(date)}</p>
+                        <p>{`Ø ${diameter.toFixed(0)} m`}</p>
+                    </div>
+                </div>
+                <div className={styles.interactive}>
+                    <ButtonContainer id={id} />
+                    <p>{danger && '⚠ danger'}</p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Post;
