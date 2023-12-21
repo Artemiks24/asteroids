@@ -6,19 +6,11 @@ import { PasswordValidate, EmailValidate } from "./validate";
 import { Gradient } from "../../consts";
 import { useRouter } from "next/navigation";
 import { handleToggleAuth } from "../../helper/ToggleAuth";
-
-
-interface FormAuthProps {
-  buttonText: string;
-}
+import { ISignin } from "../../helper/types";
+import type { FormAuthProps } from "../../helper/types";
 
 const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
   const router = useRouter();
-
-  interface ISignin {
-    email: string;
-    password: string;
-  }
 
   const {
     register,

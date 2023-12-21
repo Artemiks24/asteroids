@@ -1,8 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
 import FavoritesWrapper from '../../components/FavoritesPage/FavoritesWrapper';
 
-export default function Favorites() {
+const Favorites: FC = () => {
     return (
         <FavoritesWrapper />
     );
-}
+};
+
+export default Favorites;
