@@ -1,9 +1,20 @@
+export interface IpostProps {
+    key: string,
+    name:string,
+    kilometers:string,
+    lunar: string,
+    date:string,
+    diameter:number,
+    danger: boolean,
+    id:string,
+}
 export interface Ipost {
     id: string;
     name: string;
     estimated_diameter: Estimateddiameter;
     close_approach_data: Closeapproachdatum[];
     is_potentially_hazardous_asteroid: boolean;
+    neo_reference_id: string;
 }
 interface Estimateddiameter {
     meters: Meters;
@@ -18,3 +29,12 @@ interface Missdistance {
     lunar: string;
     kilometers: string;
 }
+
+export type VisibleButtonProps = {
+    id: string;
+};
+
+export type PostsState = {
+    isAuth: boolean;
+    favoritePosts: Record<string, boolean>;
+  };

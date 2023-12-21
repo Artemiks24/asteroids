@@ -1,11 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { PostsState } from "../../../helper/types";
 
-
-
-
-const initialState = {
+const initialState: PostsState = {
   isAuth: false,
-
+  favoritePosts: {},
 };
 
 const postsSlice = createSlice({
@@ -15,9 +13,17 @@ const postsSlice = createSlice({
     toggleAuth: (state) => {
       state.isAuth = !state.isAuth;
     },
+    toggleFavorites: (state, action: PayloadAction<string>) => {
+      const postId = action.payload; 
+      if (state.favoritePosts[postId]) {
+        delete state.favoritePosts[postId];
+      } else {
+        state.favoritePosts[postId] = true;
+      }
+    },
   },
  
 });
 
-export const { toggleAuth } = postsSlice.actions;
+export const { toggleAuth, toggleFavorites } = postsSlice.actions;
 export default postsSlice.reducer;
