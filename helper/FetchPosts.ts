@@ -12,6 +12,6 @@ export async function getPosts(): Promise<PostsResult> {
         }
         return data.near_earth_objects[date] || [];
     } catch (error) {
-        return error as Error;
+        return Promise.reject(new Error('Failed to fetch data'));
     }
 }
