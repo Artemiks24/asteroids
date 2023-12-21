@@ -136,6 +136,11 @@
     overflow-y: auto;
 }
 
+.Posts_postList___hCMv::-webkit-scrollbar {
+    width: 0;
+    background: transparent; 
+}
+
 .Posts_container__KCK6W {
     width: 400px;
     padding: 10px 15px;
