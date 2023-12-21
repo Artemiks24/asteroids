@@ -1,13 +1,14 @@
 export interface IpostProps {
     key: string,
-    name:string,
-    kilometers:string,
+    name: string,
+    kilometers: string,
     lunar: string,
-    date:string,
-    diameter:number,
+    date: string,
+    diameter: number,
     danger: boolean,
-    id:string,
+    id: string,
 }
+export type PostsResult = Ipost[];
 export interface Ipost {
     id: string;
     name: string;
@@ -37,4 +38,13 @@ export type VisibleButtonProps = {
 export type PostsState = {
     isAuth: boolean;
     favoritePosts: Record<string, boolean>;
-  };
+};
+
+export interface ISignin {
+    email: string;
+    password: string;
+}
+
+export type FormAuthProps = {
+    buttonText: string;
+};

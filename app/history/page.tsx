@@ -1,8 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
 import HistoryWrapper from '../../components/HistoryPage/HistoryWrapper';
 
-export default function History() {
+const History: FC = () => {
     return (
         <HistoryWrapper />
     );
-}
+};
+
+export default History;
