@@ -1,0 +1,55 @@
+.wrapper {
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+
+.favoriteList {
+    display: flex;
+    width: 1130px;
+    height: 500px;
+    gap: 30px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    
+}
+
+
+
+.favoriteList::-webkit-scrollbar {
+    width: 0;
+    background: transparent; 
+}
+
+
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px;
+    border: 1px solid #0f766e;
+    border-radius: 20px;
+    width: 350px;
+    height: 200px;
+    background: #0f766e;
+    
+}
+
+.postTitle {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.section {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+

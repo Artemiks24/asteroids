@@ -5,13 +5,13 @@ import VisibleButton from './VisibleButton';
 import type { VisibleButtonProps } from '../../helper/types';
 
 
-const ButtonContainer: FC<VisibleButtonProps> = ({ id }) => {
+const ButtonContainer: FC<VisibleButtonProps> = ({ o }) => {
 
 
     return (
         <>
             <StoreProvider>
-                <VisibleButton id={id} />
+                <VisibleButton o={o} />
             </StoreProvider>
 
         </>
