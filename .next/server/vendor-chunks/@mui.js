@@ -1920,7 +1920,7 @@ eval("\nif (false) {} else {\n    module.exports = __webpack_require__(/*! ./cjs
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /* __next_internal_client_entry_do_not_use__ default,boxClasses,* auto */ const { createProxy } = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
-module.exports = createProxy("C:\\Users\\User\\Desktop\\test\\asteroids\\node_modules\\@mui\\material\\Box\\index.js");
+module.exports = createProxy("C:\\Users\\user\\Desktop\\t\\asteroids\\node_modules\\@mui\\material\\Box\\index.js");
 
 
 /***/ }),
@@ -1932,7 +1932,7 @@ module.exports = createProxy("C:\\Users\\User\\Desktop\\test\\asteroids\\node_mo
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /* __next_internal_client_entry_do_not_use__ default,circularProgressClasses,* auto */ const { createProxy } = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
-module.exports = createProxy("C:\\Users\\User\\Desktop\\test\\asteroids\\node_modules\\@mui\\material\\CircularProgress\\index.js");
+module.exports = createProxy("C:\\Users\\user\\Desktop\\t\\asteroids\\node_modules\\@mui\\material\\CircularProgress\\index.js");
 
 
 /***/ })

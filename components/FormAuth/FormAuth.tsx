@@ -49,6 +49,11 @@ const FormAuth: FC<FormAuthProps> = ({ buttonText }) => {
       if (buttonText === "Sign in") {
         router.push("/signup");
       }
+      else if (buttonText === "Sign up") {
+        await handleToggleAuth();
+        newData.push(data);
+        router.push("/");
+      }
     }
     localStorage.setItem("userData", JSON.stringify(newData));
   };

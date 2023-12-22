@@ -1,0 +1,59 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/FavoritesPage/Favorites.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+.Favorites_wrapper__jbXMa {
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+
+.Favorites_favoriteList__N9Ydm {
+    display: flex;
+    width: 1130px;
+    height: 500px;
+    gap: 30px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    
+}
+
+
+
+.Favorites_favoriteList__N9Ydm::-webkit-scrollbar {
+    width: 0;
+    background: transparent; 
+}
+
+
+.Favorites_postContainer__kt8_F {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px;
+    border: 1px solid #0f766e;
+    border-radius: 20px;
+    width: 350px;
+    height: 200px;
+    background: #0f766e;
+    
+}
+
+.Favorites_postTitle__0yn2L {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.Favorites_section__avFvc {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+

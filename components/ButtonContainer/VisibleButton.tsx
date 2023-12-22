@@ -10,17 +10,17 @@ import { RootState } from '../../redux/store';
 import type { VisibleButtonProps } from '../../helper/types';
 
 
-const VisibleButton: FC<VisibleButtonProps> = ({ id }) => {
+const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
 
 
     const Auth = useSelector((state: RootState) => state.posts.isAuth);
     const favoritePosts = useSelector((state: RootState) => state.posts.favoritePosts);
 
-    const hasKey = favoritePosts.hasOwnProperty(id);
+    const hasKey = favoritePosts.hasOwnProperty(o.id);
     const dispatch = useDispatch();
 
     const handleButtonClick = () => {
-        dispatch(toggleFavorites(id));
+        dispatch(toggleFavorites(o));
     };
 
     return (

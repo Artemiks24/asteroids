@@ -1,5 +1,5 @@
 export interface IpostProps {
-    key: string,
+    key?: string,
     name: string,
     kilometers: string,
     lunar: string,
@@ -32,12 +32,12 @@ interface Missdistance {
 }
 
 export type VisibleButtonProps = {
-    id: string;
+    o: IpostProps;
 };
 
 export type PostsState = {
     isAuth: boolean;
-    favoritePosts: Record<string, boolean>;
+    favoritePosts: Record<string, IpostProps>;
 };
 
 export interface ISignin {
@@ -48,3 +48,5 @@ export interface ISignin {
 export type FormAuthProps = {
     buttonText: string;
 };
+
+
