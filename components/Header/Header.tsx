@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
 const Head: FC = () => {
-    const Auth = useSelector((state: RootState) => state.posts.isAuth);
+    const Auth = useSelector((state: RootState) => state.users.isAuth);
 
     return (
         <header className={styles.header}>

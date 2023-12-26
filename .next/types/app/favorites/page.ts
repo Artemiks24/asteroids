@@ -1,4 +1,4 @@
-// File: C:\Users\user\Desktop\t\asteroids\app\favorites\page.tsx
+// File: C:\Users\User\Desktop\as\asteroids\app\favorites\page.tsx
 import * as entry from '../../../../app/favorites/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

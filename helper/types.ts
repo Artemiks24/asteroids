@@ -36,10 +36,21 @@ export type VisibleButtonProps = {
 };
 
 export type PostsState = {
-    isAuth: boolean;
     favoritePosts: Record<string, IpostProps>;
 };
 
+export type UsersState = {
+    isAuth: boolean,
+    email: string,
+    token: string,
+    id: string,
+};
+
+export interface IusersProps {
+    email: string | null,
+    token: string,
+    id: string,
+}
 export interface ISignin {
     email: string;
     password: string;
@@ -47,6 +58,5 @@ export interface ISignin {
 
 export type FormAuthProps = {
     buttonText: string;
+    onSubmit: ({ email, password }: ISignin) => void;
 };
-
-

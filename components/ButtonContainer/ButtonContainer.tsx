@@ -7,15 +7,12 @@ import type { VisibleButtonProps } from '../../helper/types';
 
 const ButtonContainer: FC<VisibleButtonProps> = ({ o }) => {
 
-
     return (
         <>
             <StoreProvider>
                 <VisibleButton o={o} />
             </StoreProvider>
-
         </>
-
     );
 };
 

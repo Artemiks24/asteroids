@@ -13,7 +13,7 @@ import type { VisibleButtonProps } from '../../helper/types';
 const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
 
 
-    const Auth = useSelector((state: RootState) => state.posts.isAuth);
+    const Auth = useSelector((state: RootState) => state.users.isAuth);
     const favoritePosts = useSelector((state: RootState) => state.posts.favoritePosts);
 
     const hasKey = favoritePosts.hasOwnProperty(o.id);
