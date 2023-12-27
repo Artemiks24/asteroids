@@ -3,9 +3,11 @@ import styles from './Posts.module.css';
 import { getPosts } from '../../helper/FetchPosts';
 import { Ipost } from '../../helper/types';
 import Post from '../Post/Post';
+
 const Posts: FC = async () => {
 
     const allPosts = await getPosts();
+
 
     return (
         <div className={styles.postList}>

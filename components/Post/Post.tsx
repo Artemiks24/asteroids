@@ -8,7 +8,7 @@ import { IpostProps } from '../../helper/types';
 import ButtonContainer from '../ButtonContainer/ButtonContainer';
 
 const Post: FC<IpostProps> = ({ id, name, kilometers, lunar, date, diameter, danger }) => {
-    const postOobj = {id,name,kilometers,lunar,date,diameter,danger}
+    const postOobj = { id, name, kilometers, lunar, date, diameter, danger };
     return (
         <div style={{ background: Gradient.borderPost }} className={styles.container}>
             <h5 className={styles.title}>{name}</h5>
@@ -26,7 +26,7 @@ const Post: FC<IpostProps> = ({ id, name, kilometers, lunar, date, diameter, dan
                 </div>
                 <div className={styles.interactive}>
                     <ButtonContainer o={postOobj} />
-                    <p>{danger ? '⚠ Danger': 'Safe'}</p>
+                    <p>{danger ? '⚠ Danger' : 'Safe'}</p>
                 </div>
             </div>
         </div>

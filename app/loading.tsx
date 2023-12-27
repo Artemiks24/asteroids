@@ -1,21 +1,9 @@
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import Loader from '../components/Loader/Loader';
 
-const Loader = () => {
+const Load = () => {
     return (
-        <Box sx={{
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-            position: 'absolute',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-        }}>
-            <CircularProgress color="success" />
-        </Box>
+        <Loader top={0} bottom={0} right={0} left={0} position='absolute' />
     );
 };
 
-export default Loader;
+export default Load;
