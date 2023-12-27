@@ -1,7 +1,6 @@
 {
-  "/signup/page": "app/signup/page.js",
   "/page": "app/page.js",
-  "/favorites/page": "app/favorites/page.js",
-  "/modal/page": "app/modal/page.js",
-  "/signin/page": "app/signin/page.js"
+  "/signup/page": "app/signup/page.js",
+  "/signin/page": "app/signin/page.js",
+  "/favorites/page": "app/favorites/page.js"
 }

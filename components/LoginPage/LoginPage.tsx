@@ -8,7 +8,6 @@ import { app } from '../../firebase';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/features/users/usersSlices';
-import { handleToggleAuth } from '../../helper/ToggleAuth';
 import { ISignin } from '../../helper/types';
 
 const LoginPage: FC = () => {
@@ -21,12 +20,13 @@ const LoginPage: FC = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 user.getIdToken().then(token => {
-                    dispatch(setUser({
+                    const userData = {
                         email: user.email,
                         id: user.uid,
                         token: token
-                    }));
-                    handleToggleAuth();
+                    };
+                    localStorage.setItem('userData', JSON.stringify(userData));
+                    dispatch(setUser(userData));
                     router.push('/');
                 });
             })

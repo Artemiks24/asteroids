@@ -37,7 +37,7 @@ const Favorites: FC = () => {
           <h2 className={styles.title}>Favorites</h2>
           <div className={styles.favoriteList}>
             {Object.values(favoritePosts).map((post: IpostProps) => (
-              <div key={post.key} className={styles.postContainer}>
+              <div key={post.id} className={styles.postContainer}>
                 <h3 className={styles.postTitle}>{post.name}</h3>
                 <div className={styles.section}>
                   <p>{`${Number(post.kilometers).toFixed(0)} kilometers`}</p>

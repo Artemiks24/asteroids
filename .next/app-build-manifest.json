@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/signup/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/signup/page.css",
-      "static/chunks/app/signup/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -17,17 +17,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/loading.js"
     ],
-    "/page": [
+    "/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-    ],
-    "/favorites/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/favorites/page.css",
-      "static/chunks/app/favorites/page.js"
+      "static/css/app/signup/page.css",
+      "static/chunks/app/signup/page.js"
     ],
     "/signin/page": [
       "static/chunks/webpack.js",
@@ -35,11 +29,11 @@
       "static/css/app/signin/page.css",
       "static/chunks/app/signin/page.js"
     ],
-    "/modal/page": [
+    "/favorites/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/modal/page.css",
-      "static/chunks/app/modal/page.js"
+      "static/css/app/favorites/page.css",
+      "static/chunks/app/favorites/page.js"
     ]
   }
 }

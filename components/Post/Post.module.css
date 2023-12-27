@@ -29,6 +29,6 @@
 
 .interactive {
    display: flex;
-   gap: 20%; 
+   justify-content: space-between; 
    align-items: center;
 }

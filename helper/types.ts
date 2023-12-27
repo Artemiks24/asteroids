@@ -41,7 +41,7 @@ export type PostsState = {
 
 export type UsersState = {
     isAuth: boolean,
-    email: string,
+    email: string | null,
     token: string,
     id: string,
 };
@@ -60,3 +60,13 @@ export type FormAuthProps = {
     buttonText: string;
     onSubmit: ({ email, password }: ISignin) => void;
 };
+
+export interface LoaderProps {
+    top?: number | string;
+    bottom?: number | string;
+    right?: number | string;
+    left?: number | string;
+    width?: number | string;
+    height?: number | string;
+    position?: string;
+}

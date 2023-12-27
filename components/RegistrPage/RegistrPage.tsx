@@ -1,4 +1,3 @@
-
 import React, { FC } from 'react';
 import styles from './RegistrPage.module.css';
 import { Typography } from '@mui/material';
@@ -7,7 +6,6 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from '../../firebase';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/features/users/usersSlices';
-import { handleToggleAuth } from '../../helper/ToggleAuth';
 import { useRouter } from 'next/navigation';
 import { ISignin } from '../../helper/types';
 
@@ -15,18 +13,18 @@ import { ISignin } from '../../helper/types';
 const RegistrPage: FC = () => {
     const router = useRouter();
     const dispatch = useDispatch();
-
     const handleRegister = ({ email, password }: ISignin) => {
         const auth = getAuth(app);
         createUserWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 user.getIdToken().then(token => {
-                    dispatch(setUser({
+                    const userData = {
                         email: user.email,
                         id: user.uid,
                         token: token
-                    }));
-                    handleToggleAuth();
+                    };
+                    localStorage.setItem('userData', JSON.stringify(userData));
+                    dispatch(setUser(userData));
                     router.push('/');
                 });
             })
