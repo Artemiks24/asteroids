@@ -9,13 +9,13 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    toggleFavorites: (state, action: PayloadAction<IpostProps>) => {
+    addFavorites: (state, action: PayloadAction<IpostProps>) => {
       const postId = action.payload.id;
-      if (state.favoritePosts[postId]) {
-        delete state.favoritePosts[postId];
-      } else {
-        state.favoritePosts[postId] = action.payload;
-      }
+      state.favoritePosts[postId] = action.payload;
+    },
+    deleteFavorites: (state, action: PayloadAction<IpostProps>) => {
+      const postId = action.payload.id;
+      delete state.favoritePosts[postId];
     },
     unCart: (state, action: PayloadAction<string>) => {
       if (state.favoritePosts[action.payload]) {
@@ -26,6 +26,6 @@ const postsSlice = createSlice({
 
 });
 
-export const { toggleFavorites, unCart } = postsSlice.actions;
+export const { addFavorites, deleteFavorites, unCart } = postsSlice.actions;
 export default postsSlice.reducer;
 

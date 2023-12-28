@@ -1,34 +1,51 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import styles from "./Favorites.module.css";
-
 import { useSelector, useDispatch } from "react-redux";
 // import { useRouter } from "next/navigation";
-// import { useEffect } from "react";
-
 import type { RootState } from "../../redux/store";
 import { IpostProps } from "../../helper/types";
 import { formatDate } from "../../helper/formatDate";
 import { Gradient } from "../../consts";
 import { Button } from "@mui/material";
-import { unCart } from "../../redux/features/posts/postsSlice";
+import { deleteFavorites, addFavorites } from "../../redux/features/posts/postsSlice";
+import { setUser } from "../../redux/features/users/usersSlices";
+
 const Favorites: FC = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const favoritesFromStorage = localStorage.getItem('favorites');
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      dispatch(setUser(parsedData));
+    }
+    if (favoritesFromStorage) {
+      const favoritesArray = JSON.parse(favoritesFromStorage);
+      favoritesArray.forEach((item: IpostProps) => {
+        dispatch(addFavorites(item));
+      });
+    }
+  }, [dispatch]);
+
 
   const Auth = useSelector((state: RootState) => state.users.isAuth);
   const favoritePosts = useSelector(
     (state: RootState) => state.posts.favoritePosts
   );
 
-  const dispatch = useDispatch();
-  // const router = useRouter();
+  const handleRemoveButtonClick = (p: IpostProps) => {
+    const favoritesFromStorage = localStorage.getItem('favorites');
+    let favoritesArray = [];
 
-  // useEffect(() => {
-  //   if (!Auth) {
-  //     router.push("/signup");
-  //   }
-  //   else {
-  //     router.push("/favorites");
-  //   }
-  // }, [Auth, router]);
+    if (favoritesFromStorage) {
+      favoritesArray = JSON.parse(favoritesFromStorage);
+    }
+    favoritesArray = favoritesArray.filter((item: IpostProps) => item.id !== p.id);
+    localStorage.setItem('favorites', JSON.stringify(favoritesArray));
+    dispatch(deleteFavorites(p));
+  };
 
   return (
     <>
@@ -48,7 +65,7 @@ const Favorites: FC = () => {
                   <p>{formatDate(post.date)}</p>
                 </div>
                 <div className={styles.section}>
-                  <Button onClick={() => dispatch(unCart(post.id))} style={{ background: Gradient.basketButton }} variant="contained">
+                  <Button onClick={() => handleRemoveButtonClick(post)} style={{ background: Gradient.basketButton }} variant="contained">
                     Un-cart
                   </Button>
                   <p>{post.danger ? '⚠ Danger' : 'Safe'}</p>
@@ -63,3 +80,14 @@ const Favorites: FC = () => {
 };
 
 export default Favorites;
+
+// const router = useRouter();
+
+// useEffect(() => {
+//   if (!Auth) {
+//     router.push("/signup");
+//   }
+//   else {
+//     router.push("/favorites");
+//   }
+// }, [Auth, router]);

@@ -12,6 +12,7 @@ const Authorize: FC = () => {
     const handleSignOut = () => {
         dispatch(removeUser());
         localStorage.removeItem('userData');
+        localStorage.removeItem('favorites');
     };
 
 
