@@ -6,8 +6,9 @@ import { addFavorites, deleteFavorites } from '../../redux/features/posts/postsS
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import type { IpostProps, VisibleButtonProps } from '../../helper/types';
-
-
+import { getDatabase, ref, set, push, remove, get } from "firebase/database";
+import { getAuth } from 'firebase/auth';
+import { app } from '../../firebase';
 
 
 const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
@@ -16,20 +17,27 @@ const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
     const dispatch = useDispatch();
     const Auth = useSelector((state: RootState) => state.users.isAuth);
 
-    useEffect(() => {
-        const favoritesFromStorage = localStorage.getItem('favorites');
-
-        if (favoritesFromStorage) {
-            const favoritesArray = JSON.parse(favoritesFromStorage);
-            favoritesArray.forEach((item: IpostProps) => {
-                dispatch(addFavorites(item));
-            });
-        }
-    }, [dispatch]);
-
-
+    const auth = getAuth(app);
+    auth.onAuthStateChanged(() => { });
 
     const handleButtonClick = () => {
+        const user = auth.currentUser;
+
+        if (user) {
+            const database = getDatabase();
+            const userId = user.uid;
+            const userPostsRef = ref(database, `userPosts/${userId}`);
+            const newPostRef = push(userPostsRef);
+            set(newPostRef, {
+                danger: o.danger,
+                date: o.date,
+                id: o.id,
+                name: o.name,
+                lunar: o.lunar,
+                diameter: o.diameter,
+                kilometers: o.kilometers
+            });
+        }
         const favoritesFromStorage = localStorage.getItem('favorites');
         let favoritesArray = [];
 
@@ -42,6 +50,35 @@ const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
     };
 
     const handleRemoveButtonClick = () => {
+        const user = auth.currentUser;
+
+        if (user) {
+            const database = getDatabase();
+            const userId = user.uid;
+            const userPostsRef = ref(database, `userPosts/${userId}`);
+            get(userPostsRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        snapshot.forEach((childSnapshot) => {
+                            const postId = childSnapshot.val().id;
+                            if (postId === o.id) {
+                                const postIdToRemove = childSnapshot.key;
+                                const userPostRefToRemove = ref(database, `userPosts/${userId}/${postIdToRemove}`);
+                                remove(userPostRefToRemove)
+                                    .then(() => {
+                                        console.log('Пост успешно удален из базы данных');
+                                    })
+                                    .catch((error) => {
+                                        console.error('Ошибка удаления поста из базы данных:', error);
+                                    });
+                            }
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Ошибка получения данных:', error);
+                });
+        }
         const favoritesFromStorage = localStorage.getItem('favorites');
         let favoritesArray = [];
 
