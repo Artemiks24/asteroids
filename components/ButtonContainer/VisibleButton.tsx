@@ -16,9 +16,50 @@ const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
     const hasKey = favoritePosts.hasOwnProperty(o.id);
     const dispatch = useDispatch();
     const Auth = useSelector((state: RootState) => state.users.isAuth);
-
     const auth = getAuth(app);
     auth.onAuthStateChanged(() => { });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const user = auth.currentUser;
+
+            if (!user) {
+                return new Promise((resolve, reject) => {
+                    const unsubscribe = auth.onAuthStateChanged((user) => {
+                        if (user) {
+                            unsubscribe();
+                            resolve(user);
+                        }
+                    });
+                });
+            }
+
+            return user;
+        };
+
+        fetchData().then((user) => {
+            const database = getDatabase();
+            const userId = user.uid;
+            const userPostsRef = ref(database, `userPosts/${userId}`);
+            get(userPostsRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const fetchedData = [];
+                        snapshot.forEach((childSnapshot) => {
+                            fetchedData.push(childSnapshot.val());
+                        });
+                        fetchedData.forEach((post) => {
+                            dispatch(addFavorites(post));
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+    }, [auth.currentUser, auth, dispatch]);
+
+
 
     const handleButtonClick = () => {
         const user = auth.currentUser;
@@ -36,7 +77,13 @@ const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
                 lunar: o.lunar,
                 diameter: o.diameter,
                 kilometers: o.kilometers
-            });
+            })
+                .then(() => {
+                    dispatch(addFavorites(o)); // Обновление Redux Store после успешного добавления в базу данных
+                })
+                .catch((error) => {
+                    console.error('Ошибка добавления поста в базу данных:', error);
+                });
         }
         const favoritesFromStorage = localStorage.getItem('favorites');
         let favoritesArray = [];
@@ -67,6 +114,7 @@ const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
                                 remove(userPostRefToRemove)
                                     .then(() => {
                                         console.log('Пост успешно удален из базы данных');
+                                        dispatch(deleteFavorites(o)); // Обновление Redux Store после успешного удаления из базы данных
                                     })
                                     .catch((error) => {
                                         console.error('Ошибка удаления поста из базы данных:', error);
