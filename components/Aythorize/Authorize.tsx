@@ -5,14 +5,16 @@ import styles from './Authorize.module.css';
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { removeUser } from '../../redux/features/users/usersSlices';
-
+import { clearFavorites } from '../../redux/features/posts/postsSlice';
 const Authorize: FC = () => {
 
     const dispatch = useDispatch();
     const handleSignOut = () => {
         dispatch(removeUser());
+        dispatch(clearFavorites());
         localStorage.removeItem('userData');
         localStorage.removeItem('favorites');
+        localStorage.removeItem('firebase:host:asteroids-75868-default-rtdb.firebaseio.com');
     };
 
 

@@ -6,8 +6,9 @@ import { addFavorites, deleteFavorites } from '../../redux/features/posts/postsS
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import type { IpostProps, VisibleButtonProps } from '../../helper/types';
-
-
+import { getDatabase, ref, set, push, remove, get } from "firebase/database";
+import { getAuth } from 'firebase/auth';
+import { app } from '../../firebase';
 
 
 const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
@@ -15,21 +16,75 @@ const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
     const hasKey = favoritePosts.hasOwnProperty(o.id);
     const dispatch = useDispatch();
     const Auth = useSelector((state: RootState) => state.users.isAuth);
+    const auth = getAuth(app);
+    auth.onAuthStateChanged(() => { });
 
     useEffect(() => {
-        const favoritesFromStorage = localStorage.getItem('favorites');
+        const fetchData = async () => {
+            const user = auth.currentUser;
 
-        if (favoritesFromStorage) {
-            const favoritesArray = JSON.parse(favoritesFromStorage);
-            favoritesArray.forEach((item: IpostProps) => {
-                dispatch(addFavorites(item));
-            });
-        }
-    }, [dispatch]);
+            if (!user) {
+                return new Promise((resolve, reject) => {
+                    const unsubscribe = auth.onAuthStateChanged((user) => {
+                        if (user) {
+                            unsubscribe();
+                            resolve(user);
+                        }
+                    });
+                });
+            }
+
+            return user;
+        };
+
+        fetchData().then((user) => {
+            const database = getDatabase();
+            const userId = user.uid;
+            const userPostsRef = ref(database, `userPosts/${userId}`);
+            get(userPostsRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const fetchedData = [];
+                        snapshot.forEach((childSnapshot) => {
+                            fetchedData.push(childSnapshot.val());
+                        });
+                        fetchedData.forEach((post) => {
+                            dispatch(addFavorites(post));
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+    }, [auth.currentUser, auth, dispatch]);
 
 
 
     const handleButtonClick = () => {
+        const user = auth.currentUser;
+
+        if (user) {
+            const database = getDatabase();
+            const userId = user.uid;
+            const userPostsRef = ref(database, `userPosts/${userId}`);
+            const newPostRef = push(userPostsRef);
+            set(newPostRef, {
+                danger: o.danger,
+                date: o.date,
+                id: o.id,
+                name: o.name,
+                lunar: o.lunar,
+                diameter: o.diameter,
+                kilometers: o.kilometers
+            })
+                .then(() => {
+                    dispatch(addFavorites(o)); // Обновление Redux Store после успешного добавления в базу данных
+                })
+                .catch((error) => {
+                    console.error('Ошибка добавления поста в базу данных:', error);
+                });
+        }
         const favoritesFromStorage = localStorage.getItem('favorites');
         let favoritesArray = [];
 
@@ -42,6 +97,36 @@ const VisibleButton: FC<VisibleButtonProps> = ({ o }) => {
     };
 
     const handleRemoveButtonClick = () => {
+        const user = auth.currentUser;
+
+        if (user) {
+            const database = getDatabase();
+            const userId = user.uid;
+            const userPostsRef = ref(database, `userPosts/${userId}`);
+            get(userPostsRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        snapshot.forEach((childSnapshot) => {
+                            const postId = childSnapshot.val().id;
+                            if (postId === o.id) {
+                                const postIdToRemove = childSnapshot.key;
+                                const userPostRefToRemove = ref(database, `userPosts/${userId}/${postIdToRemove}`);
+                                remove(userPostRefToRemove)
+                                    .then(() => {
+                                        console.log('Пост успешно удален из базы данных');
+                                        dispatch(deleteFavorites(o)); // Обновление Redux Store после успешного удаления из базы данных
+                                    })
+                                    .catch((error) => {
+                                        console.error('Ошибка удаления поста из базы данных:', error);
+                                    });
+                            }
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Ошибка получения данных:', error);
+                });
+        }
         const favoritesFromStorage = localStorage.getItem('favorites');
         let favoritesArray = [];
 

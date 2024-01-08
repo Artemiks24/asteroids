@@ -17,6 +17,9 @@ const postsSlice = createSlice({
       const postId = action.payload.id;
       delete state.favoritePosts[postId];
     },
+    clearFavorites: (state) => {
+      state.favoritePosts = {};
+    },
     unCart: (state, action: PayloadAction<string>) => {
       if (state.favoritePosts[action.payload]) {
         delete state.favoritePosts[action.payload];
@@ -26,6 +29,6 @@ const postsSlice = createSlice({
 
 });
 
-export const { addFavorites, deleteFavorites, unCart } = postsSlice.actions;
+export const { addFavorites, deleteFavorites, unCart, clearFavorites } = postsSlice.actions;
 export default postsSlice.reducer;
 
