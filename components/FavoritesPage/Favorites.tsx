@@ -7,45 +7,110 @@ import { IpostProps } from "../../helper/types";
 import { formatDate } from "../../helper/formatDate";
 import { Gradient } from "../../consts";
 import { Button } from "@mui/material";
-import { deleteFavorites, addFavorites } from "../../redux/features/posts/postsSlice";
+import { deleteFavorites, addFavorites, setLoading } from "../../redux/features/posts/postsSlice";
 import { setUser } from "../../redux/features/users/usersSlices";
+import { getDatabase, ref, remove, get } from "firebase/database";
+import { getAuth } from 'firebase/auth';
+import { app } from '../../firebase';
+import Loader from "../Loader/Loader";
+
+
 
 const Favorites: FC = () => {
 
   const dispatch = useDispatch();
+  const Auth = useSelector((state: RootState) => state.users.isAuth);
+  const loading = useSelector((state: RootState) => state.posts.loading);
+  const favoritePosts = useSelector(
+    (state: RootState) => state.posts.favoritePosts
+  );
+  const auth = getAuth(app);
+  auth.onAuthStateChanged(() => { });
 
   useEffect(() => {
-    const favoritesFromStorage = localStorage.getItem('favorites');
     const userData = localStorage.getItem('userData');
     if (userData) {
       const parsedData = JSON.parse(userData);
       dispatch(setUser(parsedData));
     }
-    if (favoritesFromStorage) {
-      const favoritesArray = JSON.parse(favoritesFromStorage);
-      favoritesArray.forEach((item: IpostProps) => {
-        dispatch(addFavorites(item));
-      });
-    }
   }, [dispatch]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const user = auth.currentUser;
 
-  const Auth = useSelector((state: RootState) => state.users.isAuth);
-  const favoritePosts = useSelector(
-    (state: RootState) => state.posts.favoritePosts
-  );
+      if (!user) {
+        return new Promise((resolve,) => {
+          const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+              unsubscribe();
+              resolve(user);
+            }
+          });
+        });
+      }
+
+      return user;
+    };
+
+
+    fetchData().then((user) => {
+      const database = getDatabase();
+      const userId = user.uid;
+      const userPostsRef = ref(database, `userPosts/${userId}`);
+      get(userPostsRef)
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const fetchedData: IpostProps[] = [];
+            snapshot.forEach((childSnapshot) => {
+              fetchedData.push(childSnapshot.val());
+            });
+            fetchedData.forEach((post) => {
+              dispatch(addFavorites(post));
+            });
+          }
+          dispatch(setLoading(false));
+        })
+        .catch((error) => {
+          dispatch(setLoading(false));
+          console.error('Error fetching data:', error);
+        });
+    });
+  }, [auth.currentUser, auth, dispatch]);
+
 
   const handleRemoveButtonClick = (p: IpostProps) => {
-    const favoritesFromStorage = localStorage.getItem('favorites');
-    let favoritesArray = [];
+    const user = auth.currentUser;
 
-    if (favoritesFromStorage) {
-      favoritesArray = JSON.parse(favoritesFromStorage);
+    if (user) {
+      const database = getDatabase();
+      const userId = user.uid;
+      const userPostsRef = ref(database, `userPosts/${userId}`);
+      get(userPostsRef)
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+              const postId = childSnapshot.val().id;
+              if (postId === p.id) {
+                const postIdToRemove = childSnapshot.key;
+                const userPostRefToRemove = ref(database, `userPosts/${userId}/${postIdToRemove}`);
+                remove(userPostRefToRemove)
+                  .then(() => {
+                    dispatch(deleteFavorites(p));
+                  });
+              }
+            });
+          }
+        })
+        .catch((error) => {
+          console.error('Ошибка получения данных:', error);
+        });
     }
-    favoritesArray = favoritesArray.filter((item: IpostProps) => item.id !== p.id);
-    localStorage.setItem('favorites', JSON.stringify(favoritesArray));
-    dispatch(deleteFavorites(p));
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>

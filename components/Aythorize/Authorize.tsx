@@ -13,7 +13,6 @@ const Authorize: FC = () => {
         dispatch(removeUser());
         dispatch(clearFavorites());
         localStorage.removeItem('userData');
-        localStorage.removeItem('favorites');
         localStorage.removeItem('firebase:host:asteroids-75868-default-rtdb.firebaseio.com');
     };
 

@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { IpostProps, PostsState } from "../../../helper/types";
 
+
 const initialState: PostsState = {
   favoritePosts: {},
+  loading: true,
 };
 
 const postsSlice = createSlice({
@@ -24,11 +26,14 @@ const postsSlice = createSlice({
       if (state.favoritePosts[action.payload]) {
         delete state.favoritePosts[action.payload];
       }
+    },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload;
     }
   },
 
 });
 
-export const { addFavorites, deleteFavorites, unCart, clearFavorites } = postsSlice.actions;
+export const { addFavorites, deleteFavorites, unCart, clearFavorites, setLoading } = postsSlice.actions;
 export default postsSlice.reducer;
 
