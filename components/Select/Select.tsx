@@ -4,21 +4,44 @@ import styles from './Select.module.css';
 import Post from '../Post/Post';
 import { Ipost } from '../../helper/types';
 import { getPosts } from '../../helper/FetchPosts';
+import { getDatabase, ref, push, set } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
+import { app } from '../../firebase';
+
 
 const SelectComponent: FC = () => {
     const [selectedOption, setSelectedOption] = useState('');
     const [clientPosts, setClientPosts] = useState<Ipost[]>([]);
     const [serverPosts, setServerPosts] = useState<Ipost[]>([]);
+    const [options, setOptions] = useState<string[]>([]);
+
+
+    const auth = getAuth(app);
+    const apiLink = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${selectedOption}&end_date=${selectedOption}&api_key=a1ihh4BLJWaSwt11csJ3TMSWdLUcJVcuKtIwRskQ`;
+
 
     const handleSelectChange = (event) => {
         const selectedValue = event.target.value;
+        const user = auth.currentUser;
+        const userDataString = localStorage.getItem('userData');
+        if (userDataString !== null) {
+            if (user) {
+                const userId = user.uid;
+                const database = getDatabase();
+                const apiRef = ref(database, `apipost/${userId}`);
+                const newApiRef = push(apiRef);
+                set(newApiRef,
+                    apiLink,
+                );
+            }
 
+        }
         setSelectedOption(selectedValue);
     };
 
     useEffect(() => {
         if (selectedOption) {
-            fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${selectedOption}&end_date=${selectedOption}&api_key=a1ihh4BLJWaSwt11csJ3TMSWdLUcJVcuKtIwRskQ`)
+            fetch(apiLink)
                 .then((response) => response.json())
                 .then((data) => {
                     const selectedPosts = data.near_earth_objects[selectedOption] || [];
@@ -28,7 +51,20 @@ const SelectComponent: FC = () => {
                     console.error('Ошибка при запросе к API:', error);
                 });
         }
-    }, [selectedOption]);
+
+    }, [selectedOption, apiLink]);
+
+
+    useEffect(() => {
+        const currentDate = new Date();
+        const dateOptions = Array.from({ length: 7 }, (_, index) => {
+            const date = new Date(currentDate);
+            date.setDate(currentDate.getDate() + index + 1);
+            return date.toISOString().slice(0, 10);
+        });
+        setOptions(dateOptions);
+    }, []);
+
 
     useEffect(() => {
         async function fetchServerPosts() {
@@ -43,10 +79,11 @@ const SelectComponent: FC = () => {
         <div>
             <select className={styles.select} value={selectedOption} onChange={handleSelectChange}>
                 <option value="">Выберите дату</option>
-                <option value="2024-01-02">2024-01-02</option>
-                <option value="2024-01-01">2024-01-01</option>
-                <option value="2024-01-04">2024-01-04</option>
-                <option value="2024-01-03">2024-01-03</option>
+                {options.map((date) => (
+                    <option key={date} value={date}>
+                        {date}
+                    </option>
+                ))}
             </select>
             <div className={styles.postList}>
                 {selectedOption ? (
