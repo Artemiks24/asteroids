@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "components/Select/SelectWrapper.tss"  ],
   "exclude": [
     "node_modules"
   ]

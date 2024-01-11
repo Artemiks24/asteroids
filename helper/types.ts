@@ -37,6 +37,7 @@ export type VisibleButtonProps = {
 
 export type PostsState = {
     favoritePosts: Record<string, IpostProps>;
+    loading: boolean;
 };
 
 export type UsersState = {

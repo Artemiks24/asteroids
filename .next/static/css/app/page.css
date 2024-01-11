@@ -7,6 +7,47 @@
     padding: 0 20px;
     
 }
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/page.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+.page_container__jZF7q {
+    display: flex;
+    flex-direction: column;
+}
+
+.page_main__nw1Wk {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 5%;
+}
+
+.page_mainContainer__HWWsc {
+    position: relative;
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 80px;
+}
+
+.page_title__po7na {
+    justify-content: center;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 10px;
+}
+
+.page_subtitle__YBgxm {
+    margin-bottom: 10px;
+}
+
+.page_mainWrapper__WuB_k {
+    display: flex;
+    gap: 10px;
+}
+
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/UnAuthorize/UnAuthorize.module.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************/
@@ -49,56 +90,6 @@
 .Header_logo__sUWiP {
     cursor: pointer;
 }
-/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Posts/Posts.module.css ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************/
-.Posts_postList___hCMv {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    height: 600px; 
-    overflow-y: auto;
-}
-
-.Posts_postList___hCMv::-webkit-scrollbar {
-    width: 0;
-    background: transparent; 
-}
-
-.Posts_container__KCK6W {
-    width: 400px;
-    padding: 10px 15px;
-    border-radius: 10px;
-    color: azure;
-    cursor: pointer;
-}
-.Posts_title__0dRvl {
-    font-size: 18px;
-    line-height: 24px;
-}
-
-.Posts_wrapper__FsUJA {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.Posts_distanceWrapper__6wH5_ {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.Posts_description__tsIt1 {
-    display: flex;
-    gap: 10px;
-}
-
-.Posts_interactive___5IqP {
-   display: flex;
-   gap: 20%; 
-   align-items: center;
-}
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Post/Post.module.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************************/
@@ -137,42 +128,58 @@
     align-items: center;
 }
 
-/*!***************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/page.module.css ***!
-  \***************************************************************************************************************************************************************************************************************************************************************/
-.page_container__jZF7q {
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Select/Select.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.Select_postList__CUSK2 {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    height: 600px;
+    overflow-y: auto;
 }
 
-.page_main__nw1Wk {
+.Select_postList__CUSK2::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.Select_container__Pe9g7 {
+    width: 400px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: azure;
+    cursor: pointer;
+}
+.Select_title__X6xkg {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.Select_wrapper__gj8SO {
     display: flex;
-    gap: 50px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Select_distanceWrapper__vtik8 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Select_description__sPvBn {
+    display: flex;
+    gap: 10px;
+}
+
+.Select_interactive__wPsu2 {
+    display: flex;
+    gap: 20%;
     align-items: center;
-    padding: 0 20px;
-    margin-bottom: 7%;
 }
 
-.page_mainContainer__HWWsc {
-    position: relative;
-    width: 460px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 80px;
-}
-
-.page_title__po7na {
-    justify-content: center;
-    font-size: 28px;
-    line-height: 36px;
+.Select_select__VhKmS {
     margin-bottom: 10px;
 }
-
-.page_subtitle__YBgxm {
-    margin-bottom: 10px;
-}
-
-
-
 
