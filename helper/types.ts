@@ -17,6 +17,39 @@ export interface Ipost {
     is_potentially_hazardous_asteroid: boolean;
     neo_reference_id: string;
 }
+
+export interface Props {
+    params: {
+        id: string
+    }
+}
+
+export interface DetailsProps {
+    id: string;
+}
+
+interface EstimatedDiameter {
+    kilometers: {
+        estimated_diameter_min: number;
+    };
+}
+
+interface OrbitalData {
+    last_observation_date: string;
+    data_arc_in_days: number;
+    equinox: string;
+    orbital_period: number;
+}
+
+export interface IDetails {
+    name: string;
+    nasa_jpl_url: string;
+    absolute_magnitude_h: number;
+    estimated_diameter: EstimatedDiameter;
+    is_potentially_hazardous_asteroid: boolean;
+    orbital_data: OrbitalData;
+}
+
 interface Estimateddiameter {
     meters: Meters;
 }interface Meters {
