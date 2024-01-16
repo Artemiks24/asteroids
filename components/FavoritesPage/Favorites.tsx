@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import styles from "./Favorites.module.css";
 import { useSelector, useDispatch } from "react-redux";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import type { RootState } from "../../redux/store";
 import { IpostProps } from "../../helper/types";
 import { formatDate } from "../../helper/formatDate";
@@ -14,8 +14,6 @@ import { getAuth } from 'firebase/auth';
 import { app } from '../../firebase';
 import Loader from "../Loader/Loader";
 
-
-
 const Favorites: FC = () => {
 
   const dispatch = useDispatch();
@@ -26,6 +24,7 @@ const Favorites: FC = () => {
   );
   const auth = getAuth(app);
   auth.onAuthStateChanged(() => { });
+  const router = useRouter();
 
   useEffect(() => {
     const userData = localStorage.getItem('userData');
@@ -33,7 +32,10 @@ const Favorites: FC = () => {
       const parsedData = JSON.parse(userData);
       dispatch(setUser(parsedData));
     }
-  }, [dispatch]);
+    else {
+      router.push('/signup');
+    }
+  }, [dispatch, router]);
 
   useEffect(() => {
     const fetchData = async () => {

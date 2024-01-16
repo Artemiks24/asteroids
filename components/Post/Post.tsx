@@ -6,6 +6,8 @@ import { Gradient } from '../../consts';
 import { formatDate } from '../../helper/formatDate';
 import { IpostProps } from '../../helper/types';
 import ButtonContainer from '../ButtonContainer/ButtonContainer';
+import { Button } from '@mui/material';
+import Link from 'next/link';
 
 const Post: FC<IpostProps> = ({ id, name, kilometers, lunar, date, diameter, danger }) => {
     const postOobj = { id, name, kilometers, lunar, date, diameter, danger };
@@ -28,6 +30,11 @@ const Post: FC<IpostProps> = ({ id, name, kilometers, lunar, date, diameter, dan
                 <div className={styles.interactive}>
                     <ButtonContainer o={postOobj} />
                     <p>{danger ? '⚠ Danger' : 'Safe'}</p>
+                    <Link href={`/post/${id}`}>
+                        <Button size='small' style={{ background: Gradient.basket }} variant="contained">
+                            Details
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </div>

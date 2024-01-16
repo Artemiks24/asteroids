@@ -7,6 +7,7 @@ import { getPosts } from '../../helper/FetchPosts';
 import { getDatabase, ref, push, set } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 import { app } from '../../firebase';
+import Loader from '../Loader/Loader';
 
 
 const SelectComponent: FC = () => {
@@ -14,6 +15,7 @@ const SelectComponent: FC = () => {
     const [clientPosts, setClientPosts] = useState<Ipost[]>([]);
     const [serverPosts, setServerPosts] = useState<Ipost[]>([]);
     const [options, setOptions] = useState<string[]>([]);
+    const [loading, setLoading] = useState(true);
 
 
     const auth = getAuth(app);
@@ -41,6 +43,7 @@ const SelectComponent: FC = () => {
 
     useEffect(() => {
         if (selectedOption) {
+            setLoading(true);
             fetch(apiLink)
                 .then((response) => response.json())
                 .then((data) => {
@@ -49,10 +52,13 @@ const SelectComponent: FC = () => {
                 })
                 .catch((error) => {
                     console.error('Ошибка при запросе к API:', error);
+                })
+                .finally(() => {
+                    setLoading(false);
                 });
         }
-
     }, [selectedOption, apiLink]);
+
 
 
     useEffect(() => {
@@ -68,12 +74,19 @@ const SelectComponent: FC = () => {
 
     useEffect(() => {
         async function fetchServerPosts() {
-            const posts = await getPosts();
-            setServerPosts(posts);
+            try {
+                const posts = await getPosts();
+                setServerPosts(posts);
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            } finally {
+                setLoading(false);
+            }
         }
 
         fetchServerPosts();
     }, []);
+
 
     return (
         <div>
@@ -85,35 +98,38 @@ const SelectComponent: FC = () => {
                     </option>
                 ))}
             </select>
-            <div className={styles.postList}>
-                {selectedOption ? (
-                    clientPosts.map((post: Ipost) => (
-                        <Post
-                            key={post.id}
-                            name={post.name}
-                            kilometers={post.close_approach_data[0].miss_distance.kilometers}
-                            lunar={post.close_approach_data[0].miss_distance.lunar}
-                            date={post.close_approach_data[0].close_approach_date}
-                            diameter={post.estimated_diameter.meters.estimated_diameter_max}
-                            danger={post.is_potentially_hazardous_asteroid}
-                            id={post.neo_reference_id}
-                        />
-                    ))
-                ) : (
-                    serverPosts.map((post: Ipost) => (
-                        <Post
-                            key={post.id}
-                            name={post.name}
-                            kilometers={post.close_approach_data[0].miss_distance.kilometers}
-                            lunar={post.close_approach_data[0].miss_distance.lunar}
-                            date={post.close_approach_data[0].close_approach_date}
-                            diameter={post.estimated_diameter.meters.estimated_diameter_max}
-                            danger={post.is_potentially_hazardous_asteroid}
-                            id={post.neo_reference_id}
-                        />
-                    ))
-                )}
-            </div>
+            {loading ? <div className={styles.postList}><Loader position='static' /></div>
+                : <div className={styles.postList}>
+                    {selectedOption ? (
+                        clientPosts.map((post: Ipost) => (
+                            <Post
+                                key={post.id}
+                                name={post.name}
+                                kilometers={post.close_approach_data[0].miss_distance.kilometers}
+                                lunar={post.close_approach_data[0].miss_distance.lunar}
+                                date={post.close_approach_data[0].close_approach_date}
+                                diameter={post.estimated_diameter.meters.estimated_diameter_max}
+                                danger={post.is_potentially_hazardous_asteroid}
+                                id={post.neo_reference_id}
+                            />
+                        ))
+                    ) : (
+                        serverPosts.map((post: Ipost) => (
+                            <Post
+                                key={post.id}
+                                name={post.name}
+                                kilometers={post.close_approach_data[0].miss_distance.kilometers}
+                                lunar={post.close_approach_data[0].miss_distance.lunar}
+                                date={post.close_approach_data[0].close_approach_date}
+                                diameter={post.estimated_diameter.meters.estimated_diameter_max}
+                                danger={post.is_potentially_hazardous_asteroid}
+                                id={post.neo_reference_id}
+                            />
+                        ))
+                    )}
+                </div>
+            }
+
         </div>
     );
 };

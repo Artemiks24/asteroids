@@ -1,0 +1,38 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Details/Details.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+.Details_container__lRIRO {
+    width: 1000px;
+    margin: auto;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: azure;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.Details_title__Hxzor {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+.Details_wrapper__ln7LN {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/Logo/Logo.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.Logo_logoWrapper__w_tMl {
+    padding: 20px 0px 0px 20px;
+}
+
+.Logo_logo__NU4Nk {
+    cursor: pointer;
+}
